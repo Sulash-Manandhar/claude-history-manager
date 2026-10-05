@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Browse, summarize and manage your Claude Code chats, plugins, skills and CLAUDE.md files — locally." />
+    <meta name="color-scheme" content="light dark" />
+    <title>Claude History Manager</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <script src="/js/theme-init.js"></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app">
+      <aside class="sidebar" aria-label="Navigation">
+        <div class="sidebar-top">
+          <a class="brand" href="#/">
+            <img class="brand-logo" src="/logo.svg" width="34" height="34" alt="" />
+            <span class="brand-text">
+              <strong>History Manager</strong>
+              <small>for Claude Code</small>
+            </span>
+          </a>
+          <button id="menu-toggle" class="menu-toggle" aria-label="Show projects"></button>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item" data-view="home" data-icon="home">Overview</button>
+          <button class="nav-item" data-view="plugins" data-icon="plug">Plugins</button>
+          <button class="nav-item" data-view="skills" data-icon="spark">Skills</button>
+          <button class="nav-item" data-view="global" data-icon="doc">Personal CLAUDE.md</button>
+          <button class="nav-item" data-view="trash" data-icon="trash">Trash</button>
+        </nav>
+
+        <div class="projects-block">
+          <div class="sidebar-section"><span>Projects</span><span id="project-count" class="count"></span></div>
+          <input id="project-filter" class="search" type="search" placeholder="Filter projects…" aria-label="Filter projects" />
+          <ul id="project-list" class="project-list" aria-label="Projects"></ul>
+        </div>
+
+        <div class="sidebar-foot">
+          <div id="theme-slot"></div>
+        </div>
+      </aside>
+
+      <div class="main-wrap">
+        <main id="main" class="main" tabindex="-1"></main>
+        <footer class="site-footer">
+          <span>© <span id="year">2026</span> Sulash Manandhar</span>
+          <span class="dot">·</span>
+          <span>Built with Claude Code</span>
+          <span class="dot">·</span>
+          <span class="muted">Unofficial tool, not affiliated with or endorsed by Anthropic.</span>
+        </footer>
+      </div>
+    </div>
+
+    <dialog id="dialog">
+      <form method="dialog" class="dialog-body">
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-message"></p>
+        <input id="dialog-input" class="search" hidden />
+        <menu>
+          <button value="cancel" class="btn ghost">Cancel</button>
+          <button value="ok" id="dialog-ok" class="btn primary">OK</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div id="toasts" class="toasts" aria-live="polite"></div>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
